@@ -23,7 +23,7 @@ class Kaoskaki extends Controller{
     }
     public function tambah(){
         if ($this->model('Kaoskaki_model')->tambahDataKaosKaki($_POST)>0) {
-            header('Location'.BASEURL.'/kaoskaki');
+            header('Location:'.BASEURL.'/kaoskaki');
             exit;
         }
     }

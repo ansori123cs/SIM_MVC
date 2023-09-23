@@ -17,13 +17,13 @@ class Kaoskaki_model{
     public function tambahDataKaosKaki($data){
         $query="INSERT INTO kaoskaki 
             VALUES
-            ('',:nama,:mesin,:bahan,:keterangan)
+            (null,:nama,:mesin,:bahan,:keterangan)
         ";
         $this->db->query($query);
         $this->db->bind('nama',$data['nama']);
-        $this->db->bind('nama',$data['mesin']);
-        $this->db->bind('nama',$data['bahan']);
-        $this->db->bind('nama',$data['keterangan']);
+        $this->db->bind('mesin',$data['mesin']);
+        $this->db->bind('bahan',$data['bahan']);
+        $this->db->bind('keterangan',$data['keterangan']);
         $this->db->execute();
         // pengembalian nilai untuk inisialisasi statement pada controller
         return $this->db->rowCount();

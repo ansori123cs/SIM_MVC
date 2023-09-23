@@ -52,7 +52,7 @@
         </select>
         <div class="mb-3">
             <label for="keterangan" class="form-label">Keterangan</label>
-            <input type="text" class="form-control" id="nama" keterangan="keterangan">
+            <input type="text" class="form-control" id="nama" name="keterangan">
         </div>
     </div>
     <div class="modal-footer">
