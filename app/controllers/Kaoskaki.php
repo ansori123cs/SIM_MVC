@@ -23,10 +23,27 @@ class Kaoskaki extends Controller{
     }
     public function tambah(){
         if ($this->model('Kaoskaki_model')->tambahDataKaosKaki($_POST)>0) {
+            Flasher::setFlash('Berhasil','Ditambahkan','success');
+            header('Location:'.BASEURL.'/kaoskaki');
+            exit;
+        }else{
+            Flasher::setFlash('Gagal','Ditambahkan','danger');
             header('Location:'.BASEURL.'/kaoskaki');
             exit;
         }
     }
+    public function hapus($id){
+        if ($this->model('Kaoskaki_model')->hapusDataKaosKaki($id)>0) {
+            Flasher::setFlash('Berhasil','Dihapus','success');
+            header('Location:'.BASEURL.'/kaoskaki');
+            exit;
+        }else{
+            Flasher::setFlash('Gagal','Dihapus','danger');
+            header('Location:'.BASEURL.'/kaoskaki');
+            exit;
+        }
+    }
+
 }
 
 ?>

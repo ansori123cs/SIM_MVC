@@ -1,6 +1,11 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-8">  
+        <div class="col-lg-10"> 
+            <?php Flasher::flash(); ?> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10">  
             <h1>Daftar Kaos Kaki</h1>
              <!-- Button trigger modal -->
              <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#formModal">
@@ -8,8 +13,9 @@
             </button>
             <?php foreach ($data['kaos'] as $kaos) :?>
                 <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center"><?=$kaos['nama'];?>
-                    <a href="<?=BASEURL;?>/kaoskaki/detail/<?=$kaos['id_kaos'];?>"class="badge rounded-pill bg-primary">Detail</a>
+                    <li class="list-group-item"><?=$kaos['nama'];?>
+                    <a href="<?=BASEURL;?>/kaoskaki/hapus/<?=$kaos['id_kaos'];?>"class="badge rounded-pill bg-danger float-end me-2"onclick="return confirm('yakin menghapus data <?=$kaos['nama'];?> ? ');">Hapus</a>
+                    <a href="<?=BASEURL;?>/kaoskaki/detail/<?=$kaos['id_kaos'];?>"class="badge rounded-pill bg-primary float-end me-2">Detail</a>
                     </li>
                 </ul>
             <?php endforeach?>

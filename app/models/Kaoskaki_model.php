@@ -27,6 +27,15 @@ class Kaoskaki_model{
         $this->db->execute();
         // pengembalian nilai untuk inisialisasi statement pada controller
         return $this->db->rowCount();
+    }
+    public function hapusDataKaosKaki($id){
+        $query="DELETE FROM kaoskaki WHERE id_kaos = :id";
+        $this->db->query($query);
+        $this->db->bind('id',$id);
+        $this->db->execute();
+        // pengembalian nilai untuk inisialisasi statement pada controller
+        return $this->db->rowCount();
+        
 
     }
 }
