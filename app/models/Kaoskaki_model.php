@@ -1,42 +1,18 @@
 <?php
 class Kaoskaki_model{
-    // private $mhs=[
-    //     [
-    //         "nama"=>"Ansori",
-    //         "npm"=>"00972",
-    //         "email"=>"ansori@gmail.com",
-    //         "jurusan"=>"Sistem Informasi"
-    //     ],
-    //     [
-    //         "nama"=>"paong",
-    //         "npm"=>"00973",
-    //         "email"=>"paong@gmail.com",
-    //         "jurusan"=>"Teknik Informatika"
-    //     ],
-    //     [
-    //         "nama"=>"pikipik",
-    //         "npm"=>"00974",
-    //         "email"=>"pikipik@gmail.com",
-    //         "jurusan"=>"Teknik Mesin"
-    //     ]
-    // ];
-
-    private $dbh; //database handler
-    private $stmt; //statement query
-
+    private $tabel='kaoskaki';
+    private $db;
     public function __construct() {
-        $dsn='mysql:host=localhost;dbname=phpmvc';
-       try {
-        $this->dbh=new PDO($dsn ,'root','');
-       }catch(PDOException $e){
-        die($e->getMessage());
-       }
+        $this->db=new Database;
     }
-    public function getAllkaoskaki(){
-        $this->stmt=$this->dbh->prepare('SELECT*FROM kaoskaki');
-        $this->stmt->execute();
-
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function getAllKaosKaki(){
+        $this->db->query("SELECT * FROM ".$this->tabel);
+        return $this->db->resultSet();
+    }
+    public function getKaosKakiById($id){
+        $this->db->query('SELECT * FROM ' .$this->tabel.' WHERE id_kaos=:id' );
+        $this->db->bind('id',$id);
+        return $this->db->single();
     }
 }
 
