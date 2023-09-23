@@ -21,6 +21,12 @@ class Kaoskaki extends Controller{
         $this->view('kaoskaki/detail',$data);
         $this->view('headfoot/bawah');
     }
+    public function tambah(){
+        if ($this->model('Kaoskaki_model')->tambahDataKaosKaki($_POST)>0) {
+            header('Location'.BASEURL.'/kaoskaki');
+            exit;
+        }
+    }
 }
 
 ?>
