@@ -57,5 +57,14 @@ class Kaoskaki extends Controller{
     //         exit;
     //     }
     // }
+    public function cari(){
+        $data['judul']='Daftar Kaos Kaki';
+        $data['kaos']= $this->model('Kaoskaki_model')->searchKaosKaki();
+
+        $this->view('headfoot/atas',$data);
+        $this->view('headfoot/header');
+        $this->view('kaoskaki/index',$data);
+        $this->view('headfoot/bawah');
+    }
 }
 ?>

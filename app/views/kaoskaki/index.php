@@ -3,7 +3,15 @@
         <div class="col-lg-10"> 
             <?php Flasher::flash(); ?> 
         </div>
-    </div>
+        <div class="col-lg-10"> 
+            <form action="<?=BASEURL;?>/kaoskaki/cari" method="post">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Cari Data" autocomplete="off" name="keyword" id="keyword">
+                <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+            </div>
+            </form>
+        </div>
+        </div>
     <div class="row">
         <div class="col-lg-10">  
             <h1>Daftar Kaos Kaki</h1>

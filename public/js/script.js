@@ -19,6 +19,7 @@ $(function () {
       method: 'POST',
       dataType: 'json',
       success: function (data) {
+        console.log(data);
         $('#nama').val('anjay');
         $('#mesin').val('bahan');
         $('#mesin').val('mesin');
@@ -27,25 +28,25 @@ $(function () {
     });
   });
 });
-$('.tombolUbah').on('click', function () {
-  $('#formModalLabel').html('Form Ubah Data Kaos Kaki');
-  $('.modal-footer button[type=submit]').html('Ubah Data');
-  $('.modal-body form').attr('action', 'http://localhost/phpmvc/public/kaoskaki/ubah');
-  // penggunaan ajax untuk pengambilan data tanpa mereload seluruh halaman
-  const id = $(this).data('id');
-  console.log(id);
-  $.ajax({
-    url: 'http://localhost/phpmvc/public/kaoskaki/getubah',
-    data: { id_kaos: id },
-    method: 'POST',
-    dataType: 'json',
-    success: function (data) {
-      console.log(data);
-      // $('#nama').val(data.nama);
-      // $('#mesin').val(data.mesin);
-      // $('#bahan').val(data.bahan);
-      // $('#keterangan').val(data.keterangan);
-      // $('#id').val(data.id);
-    },
-  });
-});
+// $('.tombolUbah').on('click', function () {
+//   $('#formModalLabel').html('Form Ubah Data Kaos Kaki');
+//   $('.modal-footer button[type=submit]').html('Ubah Data');
+//   $('.modal-body form').attr('action', 'http://localhost/phpmvc/public/kaoskaki/ubah');
+//   // penggunaan ajax untuk pengambilan data tanpa mereload seluruh halaman
+//   const id = $(this).data('id');
+//   console.log(id);
+//   $.ajax({
+//     url: 'http://localhost/phpmvc/public/kaoskaki/getubah',
+//     data: { id_kaos: id },
+//     method: 'POST',
+//     dataType: 'json',
+//     success: function (data) {
+//       console.log(data);
+//       $('#nama').val(data.nama);
+//       $('#mesin').val(data.mesin);
+//       $('#bahan').val(data.bahan);
+//       $('#keterangan').val(data.keterangan);
+//       $('#id').val(data.id);
+//     },
+//   });
+// });

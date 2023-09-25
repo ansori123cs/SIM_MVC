@@ -54,6 +54,16 @@ class Kaoskaki_model{
         // pengembalian nilai untuk inisialisasi statement pada controller
         return $this->db->rowCount();
     }
+    public function searchKaosKaki(){
+        $keyword=$_POST['keyword'];
+        $query="SELECT * FROM kaoskaki WHERE nama LIKE :keyword";
+
+        $this->db->query($query);
+        $this->db->bind('keyword',"%$keyword%");
+        return $this->db->resultSet();
+
+
+    }
 }
 
 ?>
