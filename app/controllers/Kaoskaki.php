@@ -43,7 +43,19 @@ class Kaoskaki extends Controller{
             exit;
         }
     }
-
+    public function getubah(){
+        echo json_encode(($this->model('Kaoskaki_model')->getKaosKakiById($_POST['id'])));
+    }
+    // public function ubah(){
+    //     if ($this->model('Kaoskaki_model')->ubahDataKaosKaki($_POST)>0) {
+    //         Flasher::setFlash('Berhasil','Diubah','success');
+    //         header('Location:'.BASEURL.'/kaoskaki');
+    //         exit;
+    //     }else{
+    //         Flasher::setFlash('Gagal','Diubah','danger');
+    //         header('Location:'.BASEURL.'/kaoskaki');
+    //         exit;
+    //     }
+    // }
 }
-
 ?>

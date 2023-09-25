@@ -10,7 +10,7 @@ class Kaoskaki_model{
         return $this->db->resultSet();
     }
     public function getKaosKakiById($id){
-        $this->db->query('SELECT * FROM ' .$this->tabel.' WHERE id_kaos=:id' );
+        $this->db->query('SELECT * FROM kaoskaki WHERE id_kaos=:id' );
         $this->db->bind('id',$id);
         return $this->db->single();
     }
@@ -35,8 +35,24 @@ class Kaoskaki_model{
         $this->db->execute();
         // pengembalian nilai untuk inisialisasi statement pada controller
         return $this->db->rowCount();
-        
-
+    }
+    public function ubahDataKaosKaki($data){
+        $query=" UPDATE kaoskaki SET
+            nama=:nama,
+            mesin=:mesin,
+            bahan=:bahan,
+            keterangan=:keterangan,
+            WHERE id_kaos=:id
+        ";
+        $this->db->query($query);
+        $this->db->bind('nama',$data['nama']);
+        $this->db->bind('mesin',$data['mesin']);
+        $this->db->bind('bahan',$data['bahan']);
+        $this->db->bind('keterangan',$data['keterangan']);
+        $this->db->bind('id',$data['id']);
+        $this->db->execute();
+        // pengembalian nilai untuk inisialisasi statement pada controller
+        return $this->db->rowCount();
     }
 }
 
